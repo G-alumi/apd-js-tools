@@ -1,0 +1,32 @@
+{
+  "name": "apd-js-tools",
+  "version": "1.0.0",
+  "description": "APD (AzPainter v1) file parser",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "apd-js-tools": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "dev": "ts-node --esm src/cli.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/sharp": "^0.31.1",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "commander": "^14.0.3",
+    "sharp": "^0.34.5"
+  }
+}
