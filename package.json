@@ -13,7 +13,6 @@
   "bin": {
     "apd-js-tools": "./dist/cli.js"
   },
-  "files": ["dist"],
   "scripts": {
     "build": "tsc && tsc-alias",
     "dev": "ts-node --esm src/cli.ts"
