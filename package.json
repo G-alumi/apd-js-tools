@@ -32,7 +32,10 @@
   "dependencies": {
     "commander": "^14.0.3"
   },
-  "optionalDependencies": {
+  "peerDependencies": {
     "sharp": "^0.34.5"
+  },
+  "peerDependenciesMeta": {
+    "sharp": { "optional": true }
   }
 }
