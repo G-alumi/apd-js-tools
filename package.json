@@ -4,6 +4,12 @@
   "description": "APD (AzPainter v1) file parser",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "bin": {
     "apd-js-tools": "./dist/cli.js"
   },
@@ -11,6 +17,7 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsc && tsc-alias",
     "dev": "ts-node --esm src/cli.ts"
   },
