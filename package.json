@@ -13,6 +13,7 @@
   "bin": {
     "apd-js-tools": "./dist/cli.js"
   },
+  "files": ["dist"],
   "scripts": {
     "prepare": "node -e \"const{execSync}=require('child_process'),fs=require('fs');try{execSync('node ./node_modules/typescript/bin/tsc && node ./node_modules/tsc-alias/dist/bin/index.js',{stdio:'inherit',shell:true})}catch(e){if(!fs.existsSync('./dist/cli.js')){console.error(e.message);process.exit(1)}}\"",
     "build": "tsc && tsc-alias",
