@@ -14,6 +14,7 @@
     "apd-js-tools": "./dist/cli.js"
   },
   "scripts": {
+    "prepare": "node ./node_modules/typescript/bin/tsc && node ./node_modules/tsc-alias/dist/bin/index.js",
     "build": "tsc && tsc-alias",
     "dev": "ts-node --esm src/cli.ts"
   },
