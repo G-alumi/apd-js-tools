@@ -1,6 +1,6 @@
 {
   "name": "apd-js-tools",
-  "version": "1.0.5",
+  "version": "0.1.0",
   "description": "APD (AzPainter v1) file parser",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -35,6 +35,8 @@
     "sharp": "^0.34.5"
   },
   "peerDependenciesMeta": {
-    "sharp": { "optional": true }
+    "sharp": {
+      "optional": true
+    }
   }
 }
