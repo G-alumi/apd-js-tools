@@ -3,6 +3,7 @@ import type { ApdFile, ApdLayer, BlendMode } from "@/types/apd.js";
 
 const MAGIC = "AZPDATA\0";
 
+/** APD ファイルから1レイヤー分のデータを読み取る */
 export function parseLayer(
   buf: Buffer,
   offset: number,
@@ -29,6 +30,7 @@ export function parseLayer(
   return { layer: { name, blendMode, opacity, visible, pixels }, nextOffset: offset };
 }
 
+/** APD ファイルのバイナリデータを解析して {@link ApdFile} を返す */
 export function parseApd(buf: Buffer): ApdFile {
   if (buf.subarray(0, 8).toString("binary") !== MAGIC) {
     throw new Error("Not an AZPDATA file");

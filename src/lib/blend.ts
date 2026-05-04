@@ -2,6 +2,7 @@ import type { BlendMode } from "@/types/apd.js";
 
 // ─── RGB↔HSL 変換 ────────────────────────────────────────────
 
+/** RGB を AzPainter独自のHSL に変換する */
 export function rgbToHsl(r: number, g: number, b: number): [number, number, number] {
   const fr = r / 255, fg = g / 255, fb = b / 255;
   const l = fr * 0.3 + fg * 0.59 + fb * 0.11;
@@ -30,10 +31,7 @@ export function rgbToHsl(r: number, g: number, b: number): [number, number, numb
   return [h, s, l];
 }
 
-// function rgbToHsv(r:number, g: number, b:number):[number, number, number] {
-
-// }
-
+/** AzPainter独自のHSL を RGB に変換する */
 export function hslToRgb(h: number, s: number, l: number): [number, number, number] {
   if (h < 0 || s === 0) {
     const v = Math.round(l * 255);
@@ -222,7 +220,7 @@ const blendFns: Record<number, BlendFn> = {
 
 /**
  * src（上レイヤー）を dst（下レイヤー）にブレンドして dst を更新する。
- * pixels は BGRA 各8bit、width×height×4 バイト（APDパーサーの生データそのまま）。
+ * pixels は BGRA 各8bit、width×height×4 バイト。
  */
 export function blendLayers(
   dst: Buffer,

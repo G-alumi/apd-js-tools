@@ -1,8 +1,10 @@
+/** APD ファイル全体を表すデータ */
 export interface ApdFile {
   width: number;
   height: number;
   layerCount: number;
-  preview: Buffer;      // BGRA, 90×68, alpha unused
+  /** BGRA、90×68、アルファ未使用 */
+  preview: Buffer;
   layers: ApdLayer[];
 }
 
@@ -33,10 +35,13 @@ export const BlendMode = {
 
 export type BlendMode = typeof BlendMode[keyof typeof BlendMode];
 
+/** APD ファイルの1レイヤーを表すデータ */
 export interface ApdLayer {
   name: string;
   blendMode: BlendMode;
-  opacity: number;      // 0–128, 128 = 100%
+  /** 0〜128、128 = 100% */
+  opacity: number;
   visible: boolean;
-  pixels: Buffer;       // BGRA, bottom-up, width×height×4 bytes
+  /** BGRA、下から上順、width×height×4 バイト */
+  pixels: Buffer;
 }
