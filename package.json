@@ -1,6 +1,6 @@
 {
   "name": "apd-js-tools",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "APD (AzPainter v1) file parser",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "build": "npx tsc && npx tsc-alias",
+    "build": "tsc && tsc-alias",
     "dev": "ts-node --esm src/cli.ts"
   },
   "keywords": [],
