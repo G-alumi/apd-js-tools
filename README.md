@@ -5,7 +5,7 @@ AzPainter（windows）の `.apd` ファイルを読み込む JavaScript/TypeScri
 ## インストール
 
 ```bash
-npm install -g github:G-alumi/apd-js-tools#v1.0.0
+npm install -g github:G-alumi/apd-js-tools#v1.0.1
 ```
 
 `-g` を付けてグローバルインストールすることで、`apd-js-tools` コマンドが使えるようになります。
