@@ -7,11 +7,5 @@ export declare function hslToRgb(h: number, s: number, l: number): [number, numb
  * src（上レイヤー）を dst（下レイヤー）にブレンドして dst を更新する。
  * pixels は BGRA 各8bit、width×height×4 バイト。
  */
-export declare function blendLayers(dst: Buffer, src: Buffer, mode: BlendMode, opacity: number, // 0〜128、128=100%
-debugCoord?: {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-}): void;
+export declare function blendLayers(dst: Buffer, src: Buffer, mode: BlendMode, opacity: number): void;
 //# sourceMappingURL=blend.d.ts.map

@@ -20,10 +20,6 @@ program
   .option("-D, --delete", "clear output folder contents before exporting")
   .action(async(source: string, output: string, opts: { delete?: boolean }) => {
     const apd = parseApd(readFileSync(source));
-    console.log(`File        : ${source}`);
-    console.log(`Canvas      : ${apd.width} x ${apd.height}`);
-    console.log(`Layers      : ${apd.layerCount}`);
-    console.log(`...`);
 
     if (opts.delete && existsSync(output)) {
       for (const entry of readdirSync(output)) {
@@ -43,8 +39,6 @@ program
       }).flip().png().toFile(join(output, `${String(sequence).padStart(digits, "0")}_${layer.name}.png`))
       sequence += 1;
     }
-
-  console.log(`png folder  : ${output}`);
   });
 
 program
@@ -60,7 +54,6 @@ program
     await sharp(rgba, {
       raw: { width: apd.width, height: apd.height, channels: 4 }
     }).flip().png().toFile(dest);
-    console.log(`merge-png: ${source} → ${dest}`);
   });
 
 if (process.argv.length === 2) program.help();

@@ -227,13 +227,8 @@ export function blendLayers(
   src: Buffer,
   mode: BlendMode,
   opacity: number,   // 0〜128、128=100%
-  debugCoord?: { x: number; y: number; width: number; height: number },
 ): void {
   const fn = blendFns[mode] ?? blendFns[0x00]!;
-  // バッファは上下反転で渡されるため y を反転
-  const debugIdx = debugCoord
-    ? ((debugCoord.height - 1 - debugCoord.y) * debugCoord.width + debugCoord.x) * 4
-    : -1;
 
   for (let i = 0; i < dst.length; i += 4) {
     const sa = src[i + 3]!;
@@ -250,13 +245,6 @@ export function blendLayers(
     // 直接上書きパスは四捨五入、アルファブレンドパスは float のまま (256-a) 式に渡す
     const or = Math.round(orF), og = Math.round(ogF), ob = Math.round(obF);
 
-    if (i === debugIdx) {
-      const px = debugCoord!.x, py = debugCoord!.y;
-      console.debug(`[blend debug] (${px},${py}) mode=0x${mode.toString(16).padStart(2, "0")} opacity=${opacity}`);
-      console.debug(`  src RGBA: ${sr},${sg},${sb},${sa}  a(eff)=${a}`);
-      console.debug(`  dst RGBA: ${dr},${dg},${db},${dst[i + 3]}`);
-      console.debug(`  out RGB:  ${or},${og},${ob}  usedAlpha=${usedAlpha}`);
-    }
 
     if (usedAlpha || a === 255) {
       dst[i] = ob; // B
@@ -269,9 +257,5 @@ export function blendLayers(
       dst[i + 2] = (Math.round((orF - dr) * a / 255) + dr) | 0; // R
     }
     dst[i + 3] = 255;
-
-    if (i === debugIdx) {
-      console.debug(`  final dst RGB: ${dst[i + 2]},${dst[i + 1]},${dst[i]}`);
-    }
   }
 }

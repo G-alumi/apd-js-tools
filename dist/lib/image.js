@@ -23,8 +23,7 @@ export function flattenApd(apd) {
             continue;
         if (layer.opacity === 0)
             continue;
-        console.log(layer.name);
-        blendLayers(dst, layer.pixels, layer.blendMode, layer.opacity, { x: 698, y: 88, width: apd.width, height: apd.height });
+        blendLayers(dst, layer.pixels, layer.blendMode, layer.opacity);
     }
     return dst;
 }
